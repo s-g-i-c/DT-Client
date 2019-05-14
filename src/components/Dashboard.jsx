@@ -2,13 +2,14 @@ import React from "react";
 
 import "antd/dist/antd.css";
 import "./Dashboard.css";
-import { Layout, Menu, Icon, Row, Col } from "antd";
+import { Layout, Menu, Icon, Row, Col, Badge } from "antd";
 import logo from "./logo.png";
 import "antd/dist/antd.css";
 import "./Dashboard.css";
 
 const { Header, Sider, Content } = Layout;
 const SubMenu = Menu.SubMenu;
+const MenuItemGroup = Menu.ItemGroup;
 
 class SiderDemo extends React.Component {
   state = {
@@ -91,27 +92,62 @@ class SiderDemo extends React.Component {
             background: "#fff"
           }}
         >
-          <Header theme="right">
-            <Menu
-              onClick={this.handleClick}
-              selectedKeys={[this.state.current]}
-              mode="horizontal"
-            >
-              <Menu.Item key="mail">
-                <Icon type="mail" />
-                Navigation One
-              </Menu.Item>
-              <Menu.Item key="app" disabled>
-                <Icon type="appstore" />
-                Navigation Two
-              </Menu.Item>
-            </Menu>
+          <Header
+            style={{
+              background: "#fff"
+            }}
+          >
+            <Row gutter={16}>
+              <Col className="gutter-row" span={6}>
+                <div className="gutter-box" />
+              </Col>
+              <Col className="gutter-row" span={6}>
+                <div className="gutter-box" />
+              </Col>
+              <Col className="gutter-row" span={6}>
+                <div className="gutter-box" />
+              </Col>
+              <Col className="gutter-row" span={6}>
+                <Menu
+                  onClick={this.handleClick}
+                  selectedKeys={[this.state.current]}
+                  mode="horizontal"
+                >
+                  <Menu.Item key="setting:11">
+                    <Badge count={0} showZero>
+                      <Icon type="bell" />
+                      <a href="#" className="head-example" />
+                    </Badge>
+                  </Menu.Item>
+                  <SubMenu
+                    title={
+                      <span className="submenu-title-wrapper">
+                        <Icon type="user" />
+                        Profile
+                      </span>
+                    }
+                  >
+                    <MenuItemGroup>
+                      <Menu.Item key="setting:2">
+                        <Icon type="setting" />
+                        Edit Profile
+                      </Menu.Item>
+                      <Menu.Item key="setting:3">
+                        <Icon type="logout" />
+                        Logout
+                      </Menu.Item>
+                    </MenuItemGroup>
+                  </SubMenu>
+                </Menu>
+              </Col>
+            </Row>
           </Header>
+
           <Content
             style={{
               margin: "34px 16px",
               padding: 14,
-              background: "#fff",
+              background: "linear-gradient(to right bottom, #5C258D, #4389A2)",
 
               minHeight: 500
             }}
