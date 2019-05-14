@@ -2,11 +2,13 @@ import React from "react";
 
 import "antd/dist/antd.css";
 import "./Dashboard.css";
-import { Layout, Menu, Icon } from "antd";
+import { Layout, Menu, Icon, Row, Col } from "antd";
 import logo from "./logo.png";
+import "antd/dist/antd.css";
 import "./Dashboard.css";
 
 const { Header, Sider, Content } = Layout;
+const SubMenu = Menu.SubMenu;
 
 class SiderDemo extends React.Component {
   state = {
@@ -28,10 +30,10 @@ class SiderDemo extends React.Component {
           onCollapse={this.toggle}
         >
           <div className="logo">
-            <img src={logo} margin="34px 16px" width="55px" />{" "}
-            <a href="/">Defect Tracker</a>
+            <img src={logo} padding="10" width="65px" />{" "}
+            <a href="/">Defect.T</a>
           </div>
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
+          <Menu theme="dark " mode="inline" defaultSelectedKeys={["1"]}>
             <Menu.Item key="1">
               <Icon type="user" />
               <span>Project</span>
@@ -56,19 +58,61 @@ class SiderDemo extends React.Component {
               <Icon type="plus" />
               <span>Manage</span>
             </Menu.Item>
-            <Menu.Item key="7">
-              <Icon type="right-circle" />
-              <span>Details</span>
-            </Menu.Item>
+            <SubMenu
+              key="sub1"
+              title={
+                <span>
+                  <Icon type="sketch" />
+                  <span>Nav Expand</span>
+                </span>
+              }
+            >
+              <Menu.Item key="1">
+                <Icon type="file-add" />
+                Add
+              </Menu.Item>
+              <Menu.Item key="2">
+                <Icon type="alert" />
+                Manage
+              </Menu.Item>
+              <Menu.Item key="3">
+                <Icon type="export" />
+                Test
+              </Menu.Item>
+              <Menu.Item key="4">
+                <Icon type="tag" />
+                Test
+              </Menu.Item>
+            </SubMenu>
           </Menu>
         </Sider>
-        <Layout>
-          <Header style={{ background: "#fff", padding: 0 }} />
+        <Layout
+          style={{
+            background: "#fff"
+          }}
+        >
+          <Header theme="right">
+            <Menu
+              onClick={this.handleClick}
+              selectedKeys={[this.state.current]}
+              mode="horizontal"
+            >
+              <Menu.Item key="mail">
+                <Icon type="mail" />
+                Navigation One
+              </Menu.Item>
+              <Menu.Item key="app" disabled>
+                <Icon type="appstore" />
+                Navigation Two
+              </Menu.Item>
+            </Menu>
+          </Header>
           <Content
             style={{
               margin: "34px 16px",
               padding: 14,
               background: "#fff",
+
               minHeight: 500
             }}
           >
