@@ -1,0 +1,10 @@
+.logo {
+  margin: 10px;
+}
+
+.logo a {
+  margin-top: 15px;
+  margin-left: 10px;
+  color: #a4b0be;
+  font-weight: bold;
+}
