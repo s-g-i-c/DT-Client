@@ -2,7 +2,17 @@ import React from "react";
 
 import "antd/dist/antd.css";
 import "./Dashboard.css";
-import { Layout, Menu, Icon, Row, Col, Badge } from "antd";
+import {
+  Layout,
+  Menu,
+  Icon,
+  Row,
+  Col,
+  Badge,
+  Empty,
+  Card,
+  Progress
+} from "antd";
 import logo from "./logo.png";
 import "antd/dist/antd.css";
 import "./Dashboard.css";
@@ -36,12 +46,12 @@ class SiderDemo extends React.Component {
           </div>
           <Menu theme="dark " mode="inline" defaultSelectedKeys={["1"]}>
             <Menu.Item key="1">
-              <Icon type="user" />
-              <span>Project</span>
+              <Icon type="dashboard" />
+              <span>Dashboard</span>
             </Menu.Item>
             <Menu.Item key="2">
               <Icon type="video-camera" />
-              <span>Test</span>
+              <span>Projects</span>
             </Menu.Item>
             <Menu.Item key="3">
               <Icon type="setting" />
@@ -123,7 +133,7 @@ class SiderDemo extends React.Component {
                     title={
                       <span className="submenu-title-wrapper">
                         <Icon type="user" />
-                        Profile
+                        Mathan
                       </span>
                     }
                   >
@@ -138,6 +148,10 @@ class SiderDemo extends React.Component {
                       </Menu.Item>
                     </MenuItemGroup>
                   </SubMenu>
+                  <Menu.Item>
+                    <Icon type="sync" spin />
+                    Help
+                  </Menu.Item>
                 </Menu>
               </Col>
             </Row>
@@ -147,12 +161,49 @@ class SiderDemo extends React.Component {
             style={{
               margin: "34px 16px",
               padding: 14,
-              background: "linear-gradient(to right bottom, #5C258D, #4389A2)",
-
+              background: "#fff",
               minHeight: 500
             }}
           >
-            Content
+            <div style={{ background: "#fff", padding: "30px" }}>
+              <Row gutter={16}>
+                <Col span={8}>
+                  <Card>
+                    <div style={{ width: 170 }}>
+                      <Progress percent={30} size="small" />
+                      <Progress percent={50} size="small" status="active" />
+                      <Progress percent={70} size="small" status="exception" />
+                      <Progress percent={100} size="small" />
+                    </div>
+                  </Card>
+                </Col>
+                <Col span={8}>
+                  <Card>
+                    <div style={{ width: 170 }}>
+                      <Progress percent={30} size="small" />
+                      <Progress percent={50} size="small" status="active" />
+                      <Progress percent={70} size="small" status="exception" />
+                      <Progress percent={100} size="small" />
+                    </div>
+                  </Card>
+                </Col>
+                <Col span={8}>
+                  <Card>
+                    <div style={{ width: 170 }}>
+                      <Progress percent={30} size="small" />
+                      <Progress percent={50} size="small" status="active" />
+                      <Progress percent={70} size="small" status="exception" />
+                      <Progress percent={100} size="small" />
+                    </div>
+                  </Card>
+                </Col>
+              </Row>
+            </div>
+            <Empty
+              imageStyle={{
+                height: 270
+              }}
+            />
           </Content>
         </Layout>
       </Layout>
