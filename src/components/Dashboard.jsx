@@ -2,20 +2,11 @@ import React from "react";
 
 import "antd/dist/antd.css";
 import "./Dashboard.css";
-import {
-  Layout,
-  Menu,
-  Icon,
-  Row,
-  Col,
-  Badge,
-  Empty,
-  Card,
-  Progress
-} from "antd";
+import { Layout, Menu, Icon, Row, Col, Badge, Empty } from "antd";
 import logo from "./logo.png";
 import "antd/dist/antd.css";
 import "./Dashboard.css";
+import CompanyMain from "./Company/ListCompany";
 
 const { Header, Sider, Content } = Layout;
 const SubMenu = Menu.SubMenu;
@@ -39,10 +30,13 @@ class SiderDemo extends React.Component {
           collapsible
           collapsed={this.state.collapsed}
           onCollapse={this.toggle}
+          style={{
+            background: "#001529"
+          }}
         >
           <div className="logo">
             <img src={logo} padding="10" width="65px" />{" "}
-            <a href="/">Defect.T</a>
+            <a href="/Test">Defect.T</a>
           </div>
           <Menu theme="dark " mode="inline" defaultSelectedKeys={["1"]}>
             <Menu.Item key="1">
@@ -50,9 +44,10 @@ class SiderDemo extends React.Component {
               <span>Dashboard</span>
             </Menu.Item>
             <Menu.Item key="2">
-              <Icon type="video-camera" />
-              <span>Projects</span>
+              <Icon type="plus" />
+              <span>Manage</span>
             </Menu.Item>
+
             <Menu.Item key="3">
               <Icon type="setting" />
               <span>Defects</span>
@@ -65,10 +60,7 @@ class SiderDemo extends React.Component {
               <Icon type="user" />
               <span>Users</span>
             </Menu.Item>
-            <Menu.Item key="6">
-              <Icon type="plus" />
-              <span>Manage</span>
-            </Menu.Item>
+
             <SubMenu
               key="sub1"
               title={
@@ -126,7 +118,7 @@ class SiderDemo extends React.Component {
                   <Menu.Item key="setting:11">
                     <Badge count={0} showZero>
                       <Icon type="bell" />
-                      <a href="#" className="head-example" />
+                      <a href="hello" className="head-example" />
                     </Badge>
                   </Menu.Item>
                   <SubMenu
@@ -162,48 +154,15 @@ class SiderDemo extends React.Component {
               margin: "34px 16px",
               padding: 14,
               background: "#fff",
-              minHeight: 500
+              minHeight: 600
             }}
           >
-            <div style={{ background: "#fff", padding: "30px" }}>
-              <Row gutter={16}>
-                <Col span={8}>
-                  <Card>
-                    <div style={{ width: 170 }}>
-                      <Progress percent={30} size="small" />
-                      <Progress percent={50} size="small" status="active" />
-                      <Progress percent={70} size="small" status="exception" />
-                      <Progress percent={100} size="small" />
-                    </div>
-                  </Card>
-                </Col>
-                <Col span={8}>
-                  <Card>
-                    <div style={{ width: 170 }}>
-                      <Progress percent={30} size="small" />
-                      <Progress percent={50} size="small" status="active" />
-                      <Progress percent={70} size="small" status="exception" />
-                      <Progress percent={100} size="small" />
-                    </div>
-                  </Card>
-                </Col>
-                <Col span={8}>
-                  <Card>
-                    <div style={{ width: 170 }}>
-                      <Progress percent={30} size="small" />
-                      <Progress percent={50} size="small" status="active" />
-                      <Progress percent={70} size="small" status="exception" />
-                      <Progress percent={100} size="small" />
-                    </div>
-                  </Card>
-                </Col>
-              </Row>
-            </div>
-            <Empty
+            {/* <Empty
               imageStyle={{
-                height: 270
+                height: 300
               }}
-            />
+            /> */}
+            <CompanyMain />
           </Content>
         </Layout>
       </Layout>
