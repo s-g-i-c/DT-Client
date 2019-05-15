@@ -1,34 +1,78 @@
 import React from "react";
 
-import { Breadcrumb, Table, Divider, Popconfirm, Icon, Button } from "antd";
+import {
+  PageHeader,
+  Table,
+  Divider,
+  Popconfirm,
+  Icon,
+  Button,
+  Modal,
+  Form,
+  Input,
+  DatePicker
+} from "antd";
 
 class CompanyMain extends React.Component {
+  state = {
+    loading: false,
+    visible: false
+  };
+  showModal = () => {
+    this.setState({
+      visible: true
+    });
+  };
+
+  handleOk = () => {
+    this.setState({ loading: true });
+    setTimeout(() => {
+      this.setState({ loading: false, visible: false });
+    }, 3000);
+  };
+
+  handleCancel = () => {
+    this.setState({ visible: false });
+  };
+
   render() {
+    const { visible, loading } = this.state;
+    const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY"];
+
     const dataSource = [
       {
         key: "id",
         id: "C678",
         name: "Samuel Gnanam",
         abbreviation: "Sgic",
-        address: "10 Downing Street"
+        period: "1Year",
+        admin: "Mathan"
       },
       {
         key: "id",
-        id: "C878",
-        name: "Samuel Gnanam",
-        abbreviation: "Sgic"
+        id: "C452",
+        name: "Invicta Inovations",
+        abbreviation: "Invicta",
+        period: "1Year",
+        admin: "Theepan"
       },
+
       {
         key: "id",
-        id: "C878",
-        name: "Samuel Gnanam",
-        abbreviation: "Sgic"
+        id: "C124",
+        name: "Sysco Labs",
+        abbreviation: "Sysco",
+        period: "1Year",
+        admin: "Hari"
       },
+
       {
         key: "id",
-        id: "C878",
-        name: "Samuel Gnanam",
-        abbreviation: "Sgic"
+        id: "C777",
+        name: "Mithra inovations",
+        abbreviation: "mithra",
+        period: "2Year",
+        admin: "Tyron"
       }
     ];
     const columns = [
@@ -46,6 +90,17 @@ class CompanyMain extends React.Component {
         title: "Abbreviation",
         dataIndex: "abbreviation",
         key: "abbreviation"
+      },
+      {
+        title: "Lisence period",
+        dataIndex: "period",
+        key: "period"
+      },
+      ,
+      {
+        title: "Company Admin",
+        dataIndex: "admin",
+        key: "admin"
       },
       {
         title: "Action",
@@ -98,17 +153,74 @@ class CompanyMain extends React.Component {
 
     return (
       <React.Fragment>
-        <Breadcrumb>
-          <Breadcrumb.Item>Company</Breadcrumb.Item>
-          <Breadcrumb.Item>Main</Breadcrumb.Item>
-        </Breadcrumb>
+        <PageHeader onBack={() => null} title="Company" subTitle="Main" />
 
         <div style={{ padding: 14, background: "#fff", minHeight: 360 }}>
-          <Button type="primary">
+          <Button type="primary" onClick={this.showModal}>
             <Icon type="diff" theme="filled" />
             Add New
           </Button>
           <Table columns={columns} dataSource={dataSource} />
+        </div>
+        <div>
+          <Modal
+            visible={visible}
+            title="ADD COMPANY"
+            onOk={this.handleOk}
+            onCancel={this.handleCancel}
+            footer={[
+              <Button key="back" onClick={this.handleCancel}>
+                Return
+              </Button>,
+              <Button
+                key="submit"
+                type="primary"
+                loading={loading}
+                onClick={this.handleOk}
+              >
+                Save
+              </Button>
+            ]}
+          >
+            <Form.Item layout="horizondal">
+              <Input
+                placeholder="Company Name"
+                className={this.name}
+                onChange={event =>
+                  this.handleInputChange(event, this.validateName)
+                }
+              />
+            </Form.Item>
+            <Form.Item layout="horizondal">
+              <Input
+                placeholder="Abberivation"
+                className={this.module_id}
+                onChange={event =>
+                  this.handleInputChange(event, this.validateName)
+                }
+              />
+            </Form.Item>
+
+            <Form.Item layout="horizondal">
+              <Input
+                placeholder="Lisence period"
+                className={this.module_id}
+                onChange={event =>
+                  this.handleInputChange(event, this.validateName)
+                }
+              />
+            </Form.Item>
+
+            <Form.Item layout="horizondal">
+              <Input
+                placeholder="Company Admin name"
+                className={this.module_id}
+                onChange={event =>
+                  this.handleInputChange(event, this.validateName)
+                }
+              />
+            </Form.Item>
+          </Modal>
         </div>
       </React.Fragment>
     );
