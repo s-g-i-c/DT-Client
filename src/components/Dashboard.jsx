@@ -85,6 +85,28 @@ class SiderDemo extends React.Component {
                 Test
               </Menu.Item>
             </SubMenu>
+            <SubMenu
+              key="sub2"
+              title={
+                <span>
+                  <Icon type="sketch" />
+                  <span>Company Admin</span>
+                </span>
+              }
+            >
+              <Menu.Item key="7">
+                <Icon type="dashboard" />
+                Dashboard
+              </Menu.Item>
+              <Menu.Item key="8">
+                <Icon type="user" />
+                Employees Management
+              </Menu.Item>
+              <Menu.Item key="9">
+                <Icon type="form" />
+                Project Management
+              </Menu.Item>
+            </SubMenu>
           </Menu>
         </Sider>
         <Layout
