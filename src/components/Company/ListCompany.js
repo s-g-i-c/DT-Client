@@ -58,7 +58,7 @@ class CompanyMain extends React.Component {
           <span>
             <Divider type="vertical" />
             <Popconfirm
-              title="Are you sure, do you want edit this project?"
+              title="Are you sure, do you want edit this Company?"
               icon={
                 <Icon type="question-circle-o" style={{ color: "primary" }} />
               }
@@ -77,7 +77,7 @@ class CompanyMain extends React.Component {
             </Popconfirm>
             &nbsp; &nbsp;
             <Popconfirm
-              title="Are you sure, do you want delete this project?"
+              title="Are you sure, do you want delete this Company?"
               icon={<Icon type="question-circle-o" style={{ color: "red" }} />}
               onCancel={this.cancel}
               okText="Yes"
