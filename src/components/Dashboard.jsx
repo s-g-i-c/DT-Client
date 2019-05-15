@@ -1,4 +1,5 @@
 import React from "react";
+import AddDefect from "./Defect/AddDefect";
 
 import "antd/dist/antd.css";
 import "./Dashboard.css";
@@ -28,7 +29,7 @@ class SiderDemo extends React.Component {
           onCollapse={this.toggle}
         >
           <div className="logo">
-            <img src={logo} margin="34px 16px" width="55px" />{" "}
+            <img src={logo} margin="34px 16px" width="55px" alt="logo"/>{" "}
             <a href="/">Defect Tracker</a>
           </div>
           <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
@@ -72,7 +73,7 @@ class SiderDemo extends React.Component {
               minHeight: 500
             }}
           >
-            Content
+            <AddDefect />
           </Content>
         </Layout>
       </Layout>
