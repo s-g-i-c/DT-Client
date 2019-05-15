@@ -93,12 +93,12 @@ export default class AddDefect extends Component {
                   <Col span={8}> Severity</Col>
                   <Col span={8}> Priority</Col>
                 </Row>
-                <Row style={{ margin: "0px 0px 20px 0px" }}>
+                <Row style={{ margin: "0px 0px 60px 0px" }}>
                   <Col span={8}>
                     <Col span={24}>
                       <Select
                         showSearch
-                        style={{ width: 200 }}
+                        style={{ width: "90%" }}
                         placeholder=" Select Module"
                       >
                         <Option value="module1"> Module 1 </Option>
@@ -111,7 +111,7 @@ export default class AddDefect extends Component {
                     <Col span={24}>
                       <Select
                         showSearch
-                        style={{ width: 200 }}
+                        style={{ width: "90%" }}
                         placeholder=" Select Severity"
                       >
                         <Option value="high"> High </Option>
@@ -124,7 +124,7 @@ export default class AddDefect extends Component {
                     <Col span={24}>
                       <Select
                         showSearch
-                        style={{ width: 200 }}
+                        style={{ width: "99%" }}
                         placeholder=" Select Priority"
                       >
                         <Option value="high"> High </Option>
@@ -143,16 +143,42 @@ export default class AddDefect extends Component {
                     <TextArea rows={2} />
                   </Col>
                 </Row>
+
                 <Row>
                   <Col span={12}>Steps to Re-Create</Col>
                 </Row>
-                <Row style={{ margin: "0px 0px 20px 0px" }}>
+                <Row style={{ margin: "0px 0px 60px 0px" }}>
                   <Col span={24}>
                     <TextArea rows={4} />
                   </Col>
                 </Row>
 
                 <Row>{/* <Divider /> */}</Row>
+                <Row>
+                  <Col span={12}>Assigned To</Col>
+                  <Col span={12}>Available In</Col>
+                </Row>
+                <Row style={{ margin: "0px 0px 20px 0px" }}>
+                  <Col span={12}>
+                    <Select
+                      showSearch
+                      style={{ width: "90%" }}
+                      placeholder=" Assigned To "
+                    >
+                      <Option value="user1"> User1 </Option>
+                      <Option value="user2"> User2 </Option>
+                      <Option value="user3"> User3 </Option>
+                    </Select>
+                  </Col>
+                  <Col span={12}>
+                    <Input
+                      placeholder="Available In"
+                      style={{ width: "99%" }}
+                      allowClear
+                      onChange={this.onChange}
+                    />
+                  </Col>
+                </Row>
 
                 <Row>
                   <Col span={12}> Comments </Col>
