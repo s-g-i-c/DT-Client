@@ -10,9 +10,16 @@ import {
   Modal,
   Form,
   Input,
-  DatePicker
+  DatePicker,
+  Col,
+  Row
 } from "antd";
+import moment from "moment";
 
+const { MonthPicker, RangePicker } = DatePicker;
+
+const dateFormat = "YYYY/MM/DD";
+const monthFormat = "YYYY/MM";
 class CompanyMain extends React.Component {
   state = {
     loading: false,
@@ -164,8 +171,11 @@ class CompanyMain extends React.Component {
         </div>
         <div>
           <Modal
+            style={{ top: 20 }}
+            width="700px"
             visible={visible}
-            title="ADD COMPANY"
+            theme="dark"
+            title="  ADD COMPANY"
             onOk={this.handleOk}
             onCancel={this.handleCancel}
             footer={[
@@ -182,44 +192,111 @@ class CompanyMain extends React.Component {
               </Button>
             ]}
           >
-            <Form.Item layout="horizondal">
-              <Input
-                placeholder="Company Name"
-                className={this.name}
-                onChange={event =>
-                  this.handleInputChange(event, this.validateName)
-                }
-              />
-            </Form.Item>
-            <Form.Item layout="horizondal">
-              <Input
-                placeholder="Abberivation"
-                className={this.module_id}
-                onChange={event =>
-                  this.handleInputChange(event, this.validateName)
-                }
-              />
-            </Form.Item>
+            <Row>
+              <Col span={12}>
+                <Row>Company Name :</Row>
+                <Row>
+                  <Form.Item>
+                    <Input
+                      placeholder="Enter Company Name !"
+                      className={this.name}
+                      onChange={event =>
+                        this.handleInputChange(event, this.validateName)
+                      }
+                    />
+                  </Form.Item>
+                </Row>
 
-            <Form.Item layout="horizondal">
-              <Input
-                placeholder="Lisence period"
-                className={this.module_id}
-                onChange={event =>
-                  this.handleInputChange(event, this.validateName)
-                }
-              />
-            </Form.Item>
-
-            <Form.Item layout="horizondal">
-              <Input
-                placeholder="Company Admin name"
-                className={this.module_id}
-                onChange={event =>
-                  this.handleInputChange(event, this.validateName)
-                }
-              />
-            </Form.Item>
+                <Row>Lisence Period</Row>
+                <Row>
+                  <Form.Item>
+                    <Input
+                      type="text"
+                      placeholder=" Enter Lisence Period !"
+                      className={this.module_id}
+                      onChange={event =>
+                        this.handleInputChange(event, this.validateName)
+                      }
+                    />
+                  </Form.Item>
+                </Row>
+                <Row>Email</Row>
+                <Row>
+                  <Form.Item>
+                    <Input
+                      type="email"
+                      placeholder=" Mathan-Test@gmail.com"
+                      className={this.module_id}
+                      onChange={event =>
+                        this.handleInputChange(event, this.validateName)
+                      }
+                    />
+                  </Form.Item>
+                </Row>
+                <Col span={12}>
+                  <Row>Start Date</Row>
+                  <Row>
+                    <Form.Item>
+                      <DatePicker
+                        defaultValue={moment("2019/1/01", dateFormat)}
+                        format={dateFormat}
+                      />
+                    </Form.Item>
+                  </Row>
+                </Col>
+                <Col span={12}>
+                  <Row>End Date</Row>
+                  <Row>
+                    <Form.Item>
+                      <DatePicker
+                        defaultValue={moment("2019/12/01", dateFormat)}
+                        format={dateFormat}
+                      />
+                    </Form.Item>
+                  </Row>
+                </Col>
+              </Col>
+              <Col span={1} />
+              <Col span={11}>
+                <Row>Abberivation :</Row>
+                <Row>
+                  <Form.Item>
+                    <Input
+                      placeholder=" Enter Abberivation !"
+                      className={this.module_id}
+                      onChange={event =>
+                        this.handleInputChange(event, this.validateName)
+                      }
+                    />
+                  </Form.Item>
+                </Row>
+                <Row>IT Incharge :</Row>
+                <Row>
+                  <Form.Item>
+                    <Input
+                      placeholder=" Enter Admin Name !"
+                      className={this.module_id}
+                      onChange={event =>
+                        this.handleInputChange(event, this.validateName)
+                      }
+                    />
+                  </Form.Item>
+                </Row>
+                <Row>Password</Row>
+                <Row>
+                  <Form.Item>
+                    <Input
+                      type="password"
+                      placeholder=" *******"
+                      className={this.module_id}
+                      onChange={event =>
+                        this.handleInputChange(event, this.validateName)
+                      }
+                    />
+                  </Form.Item>
+                </Row>
+              </Col>
+            </Row>
           </Modal>
         </div>
       </React.Fragment>
