@@ -16,22 +16,19 @@ class CompanyMain extends React.Component {
         key: "id",
         id: "C878",
         name: "Samuel Gnanam",
-        abbreviation: "Sgic",
-        address: "10 Downing Street"
+        abbreviation: "Sgic"
       },
       {
         key: "id",
         id: "C878",
         name: "Samuel Gnanam",
-        abbreviation: "Sgic",
-        address: "10 Downing Street"
+        abbreviation: "Sgic"
       },
       {
         key: "id",
         id: "C878",
         name: "Samuel Gnanam",
-        abbreviation: "Sgic",
-        address: "10 Downing Street"
+        abbreviation: "Sgic"
       }
     ];
     const columns = [
@@ -54,9 +51,8 @@ class CompanyMain extends React.Component {
         title: "Action",
         key: "action",
 
-        render: (text, record) => (
+        render: () => (
           <span>
-            <Divider type="vertical" />
             <Popconfirm
               title="Are you sure, do you want edit this Company?"
               icon={
@@ -75,6 +71,7 @@ class CompanyMain extends React.Component {
                 Edit
               </a>
             </Popconfirm>
+            <Divider type="vertical" />
             &nbsp; &nbsp;
             <Popconfirm
               title="Are you sure, do you want delete this Company?"
@@ -88,6 +85,7 @@ class CompanyMain extends React.Component {
                 Delete
               </a>
             </Popconfirm>
+            <Divider type="vertical" />
             &nbsp; &nbsp;
             <a href="hello" style={{ color: "green" }}>
               <Icon type="fullscreen" className="datatable-icon" />
@@ -100,12 +98,12 @@ class CompanyMain extends React.Component {
 
     return (
       <React.Fragment>
-        <Breadcrumb style={{ margin: " 0" }}>
+        <Breadcrumb>
           <Breadcrumb.Item>Company</Breadcrumb.Item>
           <Breadcrumb.Item>Main</Breadcrumb.Item>
         </Breadcrumb>
 
-        <div style={{ padding: 24, background: "#fff", minHeight: 360 }}>
+        <div style={{ padding: 14, background: "#fff", minHeight: 360 }}>
           <Button type="primary">
             <Icon type="diff" theme="filled" />
             Add New
