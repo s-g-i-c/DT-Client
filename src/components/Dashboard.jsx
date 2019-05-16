@@ -6,6 +6,7 @@ import { Layout, Menu, Icon, Row, Col, Badge, Empty, Ico } from "antd";
 import logo from "./logo.png";
 import "antd/dist/antd.css";
 import "./Dashboard.css";
+import Dashboard from "./companyAdmin/Dashboard";
 
 const { Header, Sider, Content } = Layout;
 const SubMenu = Menu.SubMenu;
@@ -177,11 +178,7 @@ class SiderDemo extends React.Component {
               minHeight: 500
             }}
           >
-            <Empty
-              imageStyle={{
-                height: 300
-              }}
-            />
+          <Dashboard />
           </Content>
         </Layout>
       </Layout>
