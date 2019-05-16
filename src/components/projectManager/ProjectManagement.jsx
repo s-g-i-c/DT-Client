@@ -74,6 +74,22 @@ function info() {
           </Col>
         </Row>
         <Row gutter={16} style={{ "margin-bottom": "5px" }}>
+          <Col span={6}>Status</Col>
+          <Col span={18}>
+            <strong>
+              <span>: </span>OnGoing
+            </strong>
+          </Col>
+        </Row>
+        <Row gutter={16} style={{ "margin-bottom": "5px" }}>
+          <Col span={6}>Progress</Col>
+          <Col span={18}>
+            <strong>
+              <span>: </span>OnGoing
+            </strong>
+          </Col>
+        </Row>
+        <Row gutter={16} style={{ "margin-bottom": "5px" }}>
           <Col span={6}>Description</Col>
           <Col span={18}>
             <span>: </span>
@@ -82,10 +98,7 @@ function info() {
             ever since the 1500s, when an unknown printer took a galley of type
             and scrambled it to make a type specimen book. It has survived not
             only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
+            remaining essentially unchanged.
           </Col>
         </Row>
       </div>
