@@ -16,10 +16,8 @@ import {
 } from "antd";
 import moment from "moment";
 
-const { MonthPicker, RangePicker } = DatePicker;
-
 const dateFormat = "YYYY/MM/DD";
-const monthFormat = "YYYY/MM";
+
 class CompanyMain extends React.Component {
   state = {
     loading: false,
@@ -44,7 +42,6 @@ class CompanyMain extends React.Component {
 
   render() {
     const { visible, loading } = this.state;
-    const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY"];
 
     const dataSource = [
       {
@@ -103,7 +100,7 @@ class CompanyMain extends React.Component {
         dataIndex: "period",
         key: "period"
       },
-      ,
+
       {
         title: "Company Admin",
         dataIndex: "admin",
@@ -233,28 +230,6 @@ class CompanyMain extends React.Component {
                     />
                   </Form.Item>
                 </Row>
-                <Col span={12}>
-                  <Row>Start Date</Row>
-                  <Row>
-                    <Form.Item>
-                      <DatePicker
-                        defaultValue={moment("2019/1/01", dateFormat)}
-                        format={dateFormat}
-                      />
-                    </Form.Item>
-                  </Row>
-                </Col>
-                <Col span={12}>
-                  <Row>End Date</Row>
-                  <Row>
-                    <Form.Item>
-                      <DatePicker
-                        defaultValue={moment("2019/12/01", dateFormat)}
-                        format={dateFormat}
-                      />
-                    </Form.Item>
-                  </Row>
-                </Col>
               </Col>
               <Col span={1} />
               <Col span={11}>
@@ -282,19 +257,29 @@ class CompanyMain extends React.Component {
                     />
                   </Form.Item>
                 </Row>
-                <Row>Password</Row>
-                <Row>
-                  <Form.Item>
-                    <Input
-                      type="password"
-                      placeholder=" *******"
-                      className={this.module_id}
-                      onChange={event =>
-                        this.handleInputChange(event, this.validateName)
-                      }
-                    />
-                  </Form.Item>
-                </Row>
+                <Col span={11}>
+                  <Row>Start Date</Row>
+                  <Row>
+                    <Form.Item>
+                      <DatePicker
+                        defaultValue={moment("2019/1/01", dateFormat)}
+                        format={dateFormat}
+                      />
+                    </Form.Item>
+                  </Row>
+                </Col>
+                <Col span={2} />
+                <Col span={11}>
+                  <Row>End Date</Row>
+                  <Row>
+                    <Form.Item>
+                      <DatePicker
+                        defaultValue={moment("2019/12/01", dateFormat)}
+                        format={dateFormat}
+                      />
+                    </Form.Item>
+                  </Row>
+                </Col>
               </Col>
             </Row>
           </Modal>

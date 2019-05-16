@@ -1,12 +1,11 @@
 import React from "react";
 
-import SiderDemo from "./components/Dashboard";
-// import Hello from "./components/SuperAdmin/index";
+import Dashboard from "./components/Company/Dashboard";
 
 function App() {
   return (
     <div className="App">
-      <SiderDemo />
+      <Dashboard />
     </div>
   );
 }
