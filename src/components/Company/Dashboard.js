@@ -10,6 +10,8 @@ import CompanyMain from "./ListCompanies";
 import Widget from "./Widget";
 import Emptyfile from "./EmptyFile";
 import Profile from "../User/Profile";
+import DefectDashboard from "../Defect/DefectDash";
+import AddDefect from "../Defect/AddDefect";
 
 const { Header, Sider, Content } = Layout;
 const SubMenu = Menu.SubMenu;
@@ -62,6 +64,27 @@ class Dashboard extends React.Component {
                 <span>Empty</span>
                 <Link to={`/empty`} />
               </Menu.Item>
+
+              <SubMenu
+                key="sub1"
+                title={
+                  <span>
+                    <Icon type="sketch" />
+                    <span>Defect Dash</span>
+                  </span>
+                }
+              >
+                <Menu.Item key="11">
+                  <Icon type="file-add" />
+                  Defect Dash
+                  <Link to={`/DefectDash`} />
+                </Menu.Item>
+                <Menu.Item key="12">
+                  <Icon type="alert" />
+                  Manage Defect
+                  <Link to={`/AddDefect`} />
+                </Menu.Item>
+              </SubMenu>
             </Menu>
           </Sider>
           <Layout
@@ -142,6 +165,8 @@ class Dashboard extends React.Component {
               <Route path="/main" component={CompanyMain} />
               <Route path="/empty" component={Emptyfile} />
               <Route path="/profile" component={Profile} />
+              <Route path="/AddDefect" component={AddDefect} />
+              <Route path="/DefectDash" component={DefectDashboard} />
             </Content>
           </Layout>
         </Layout>

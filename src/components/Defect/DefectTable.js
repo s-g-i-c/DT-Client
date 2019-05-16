@@ -149,7 +149,7 @@ export default class DefectTable extends Component {
         dataIndex: "",
         key: "x",
         render: () => (
-          <Button type="link" icon="ellipsis" onClick={this.showModal} />
+          <Button type="link" icon="fullscreen" onClick={this.showModal} />
         )
       }
     ];

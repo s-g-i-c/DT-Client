@@ -1,86 +1,273 @@
-import React from "react";
-// import AddDefect from "./Defect/AddDefect";
-import DefectDashboard from "./Defect/DefectDashboard";
+import React, { Component } from "react";
+import { Col, Row, Progress, Card, Divider } from "antd";
+import { Doughnut } from "react-chartjs-2";
 
-import "antd/dist/antd.css";
-
-import { Layout, Menu, Icon } from "antd";
-import logo from "./logo.png";
-import "./Dashboard.css";
-
-const { Header, Sider, Content } = Layout;
-
-class DefectDash extends React.Component {
-  state = {
-    collapsed: false
-  };
-
-  toggle = () => {
-    this.setState({
-      collapsed: !this.state.collapsed
-    });
-  };
-
+export default class DefectDashboard extends Component {
   render() {
+    const data = {
+      datasets: [
+        {
+          data: [300, 50, 100, 200],
+          backgroundColor: ["#5b8c00", "#a0d911", "#13c2c2", "#722ed1"],
+          hoverBackgroundColor: ["#135200", "#389e0d", "#006d75", "#391085"]
+        }
+      ],
+      labels: ["Fixed", "Closed", "Rejected", "Deferred"]
+    };
     return (
-      <Layout>
-        <Sider
-          collapsible
-          collapsed={this.state.collapsed}
-          onCollapse={this.toggle}
-        >
-          <div className="logo">
-            <img src={logo} margin="34px 16px" width="55px" alt="logo" />{" "}
-            <a href="/">Defect Tracker</a>
-          </div>
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
-            <Menu.Item key="1">
-              <Icon type="user" />
-              <span>Project</span>
-            </Menu.Item>
-            <Menu.Item key="2">
-              <Icon type="video-camera" />
-              <span>Test</span>
-            </Menu.Item>
-            <Menu.Item key="3">
-              <Icon type="setting" />
-              <span>Defects</span>
-            </Menu.Item>
-            <Menu.Item key="4">
-              <Icon type="form" />
-              <span>Projects</span>
-            </Menu.Item>
-            <Menu.Item key="5">
-              <Icon type="user" />
-              <span>Users</span>
-            </Menu.Item>
-            <Menu.Item key="6">
-              <Icon type="plus" />
-              <span>Manage</span>
-            </Menu.Item>
-            <Menu.Item key="7">
-              <Icon type="right-circle" />
-              <span>Details</span>
-            </Menu.Item>
-          </Menu>
-        </Sider>
-        <Layout>
-          <Header style={{ background: "#fff", padding: 0 }} />
-          <Content
-            style={{
-              margin: "34px 16px",
-              padding: 14,
-              background: "#fff",
-              minHeight: 500
-            }}
-          >
-            {/* <AddDefect /> */}
-            <DefectDashboard />
-          </Content>
-        </Layout>
-      </Layout>
+      <div>
+        <Row gutter={16}>
+          <Col span={8}>
+            <Card style={{ width: 300, marginTop: 0 }}>
+              <Col span={18}>
+                <h2>Total Defects</h2>
+              </Col>
+              <Col span={6}>
+                <h2 style={{ color: "#52c41a" }}> 50 </h2>
+              </Col>
+            </Card>
+          </Col>
+          <Col span={8}>
+            <Card style={{ width: 300, marginTop: 0 }}>
+              <Col span={18}>
+                <h2>Fixed Defects</h2>
+              </Col>
+              <Col span={6}>
+                <h2 style={{ color: "#52c41a" }}> 45 </h2>
+              </Col>
+            </Card>
+          </Col>
+          <Col span={8}>
+            <Card style={{ width: 300, marginTop: 0 }}>
+              <Col span={18}>
+                <h2>Available Defects</h2>
+              </Col>
+              <Col span={6}>
+                <h2 style={{ color: "#52c41a" }}> 05 </h2>
+              </Col>
+            </Card>
+          </Col>
+        </Row>
+
+        <Row style={{ margin: "0px 0px 30px 0px" }} />
+        <Row>
+          <Col span={18}>
+            <Col span={3}>New</Col>
+            <Col span={15}>
+              <Progress
+                percent={10}
+                status="active"
+                strokeColor={{
+                  "0%": "#f5222d",
+                  "100%": "#f5222d"
+                }}
+              />
+            </Col>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col span={18}>
+            <Col span={3}>Open</Col>
+            <Col span={15}>
+              <Progress
+                percent={20}
+                status="active"
+                strokeColor={{
+                  "0%": "#eb2f96",
+                  "100%": "#ff7a45"
+                }}
+              />
+            </Col>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col span={18}>
+            <Col span={3}> Fixed </Col>
+            <Col span={15}>
+              <Progress
+                percent={30}
+                status="active"
+                strokeColor={{
+                  "0%": "#5b8c00",
+                  "100%": "#5b8c00"
+                }}
+                style={{}}
+              />
+            </Col>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col span={18}>
+            <Col span={3}>Re-Open</Col>
+            <Col span={15}>
+              <Progress
+                percent={40}
+                status="active"
+                strokeColor={{
+                  "0%": "#fadb14",
+                  "100%": "#fadb14"
+                }}
+                style={{}}
+              />
+            </Col>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={18}>
+            <Col span={3}>Closed</Col>
+            <Col span={15}>
+              <Progress
+                percent={50}
+                strokeColor={{
+                  "0%": "#a0d911",
+                  "100%": "#a0d911"
+                }}
+                status="active"
+              />
+            </Col>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={18}>
+            <Col span={3}>Rejected</Col>
+            <Col span={15}>
+              <Progress
+                percent={60}
+                strokeColor={{
+                  "0%": "#13c2c2",
+                  "100%": "#13c2c2"
+                }}
+                status="active"
+              />
+            </Col>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={18}>
+            <Col span={3}>Deferred</Col>
+            <Col span={15}>
+              <Progress
+                percent={70}
+                strokeColor={{
+                  "0%": "#722ed1",
+                  "100%": "#722ed1"
+                }}
+                status="active"
+              />
+            </Col>
+          </Col>
+        </Row>
+
+        <Row style={{ marginBottom: "30px" }} />
+        <Divider />
+        <Row>
+          {" "}
+          <h2> Overall </h2>{" "}
+        </Row>
+
+        <Row>
+          <Col span={12}>
+            <Row>
+              <Col span={10}>
+                <Card style={{ width: 300, marginTop: 16 }}>
+                  <Col span={18}>
+                    <h2>Total Defects</h2>
+                  </Col>
+                  <Col span={6}>
+                    <h2 style={{ color: "#52c41a" }}> 50 </h2>
+                  </Col>
+                </Card>
+              </Col>
+              <Col span={2} />
+
+              <Col span={10}>
+                <Card style={{ width: 300, marginTop: 16 }}>
+                  <Col span={18}>
+                    <h2>Fixed Defects</h2>
+                  </Col>
+                  <Col span={6}>
+                    <h2 style={{ color: "#52c41a" }}> 45 </h2>
+                  </Col>
+                </Card>
+              </Col>
+            </Row>
+
+            <Row style={{ margin: "0px 0px 30px 0px" }} />
+
+            <Row>
+              <Col span={24}>
+                <Col span={4}> Fixed </Col>
+                <Col span={20}>
+                  <Progress
+                    percent={30}
+                    status="active"
+                    strokeColor={{
+                      "0%": "#5b8c00",
+                      "100%": "#5b8c00"
+                    }}
+                    style={{}}
+                  />
+                </Col>
+              </Col>
+            </Row>
+
+            <Row>
+              <Col span={24}>
+                <Col span={4}>Closed</Col>
+                <Col span={20}>
+                  <Progress
+                    percent={50}
+                    strokeColor={{
+                      "0%": "#a0d911",
+                      "100%": "#a0d911"
+                    }}
+                    status="active"
+                  />
+                </Col>
+              </Col>
+            </Row>
+            <Row>
+              <Col span={24}>
+                <Col span={4}>Rejected</Col>
+                <Col span={20}>
+                  <Progress
+                    percent={60}
+                    strokeColor={{
+                      "0%": "#13c2c2",
+                      "100%": "#13c2c2"
+                    }}
+                    status="active"
+                  />
+                </Col>
+              </Col>
+            </Row>
+            <Row>
+              <Col span={24}>
+                <Col span={4}>Deferred</Col>
+                <Col span={20}>
+                  <Progress
+                    percent={70}
+                    strokeColor={{
+                      "0%": "#722ed1",
+                      "100%": "#722ed1"
+                    }}
+                    status="active"
+                  />
+                </Col>
+              </Col>
+            </Row>
+          </Col>
+
+          <Col span={12}>
+            <Col span={24}>
+              <Doughnut data={data} />
+            </Col>
+          </Col>
+        </Row>
+      </div>
     );
   }
 }
-
-export default DefectDash;
