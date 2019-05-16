@@ -142,7 +142,7 @@ export default class Dashboard extends Component {
           </Col>
         </Row>
 
-        <ProjectManagement />
+        <EmployeesManager />
 
       </div>
     );

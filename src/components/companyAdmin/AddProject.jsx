@@ -1,11 +1,29 @@
 import React, { Component } from "react";
-import { Form, Row, Col, Input, DatePicker, TimePicker } from "antd";
+import { Form, Row, Col, Input, DatePicker, TimePicker, Select } from "antd";
 
 const { MonthPicker, RangePicker, WeekPicker } = DatePicker;
 const { TextArea } = Input;
 
 function onChange(date, dateString) {
-    console.log(date, dateString);
+  console.log(date, dateString);
+}
+
+const Option = Select.Option;
+
+function onChangeSelect(value) {
+  console.log(`selected ${value}`);
+}
+
+function onBlur() {
+  console.log('blur');
+}
+
+function onFocus() {
+  console.log('focus');
+}
+
+function onSearch(val) {
+  console.log('search:', val);
 }
 
 export default class AddProject extends Component {
@@ -41,32 +59,29 @@ export default class AddProject extends Component {
 
           <Row style={{ margin: "0 0 10px 0" }}>
             <Col span={12}>Project Manager</Col>
-            <Col span={12}>Duration</Col>
+            <Col span={12}>Type</Col>
           </Row>
           <Row style={{ margin: "0 0 20px 0" }}>
             <Col span={12}>
               {" "}
-              <Input
-                placeholder="Project Manager"
+              <Select
+                showSearch
                 style={{ width: "90%" }}
-                allowClear
-                onChange={this.onChange}
-              />
+                placeholder="Select a Manager"
+                optionFilterProp="children"
+                onChange={onChangeSelect}
+                onFocus={onFocus}
+                onBlur={onBlur}
+                onSearch={onSearch}
+                filterOption={(input, option) =>
+                  option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                }
+              >
+                <Option value="jack">Mr.Rajintha</Option>
+                <Option value="lucy">Mr.Chathuranga</Option>
+                <Option value="tom">Mr.Malin</Option>
+              </Select>
             </Col>
-            <Col span={12}>
-              <Input
-                placeholder="Duration"
-                style={{ width: "90%" }}
-                allowClear
-                onChange={this.onChange}
-              />{" "}
-            </Col>
-          </Row>
-          <Row style={{ margin: "0 0 10px 0" }}>
-            <Col span={12}>Type</Col>
-            <Col span={12}>Members</Col>
-          </Row>
-          <Row style={{ margin: "0 0 20px 0" }}>
             <Col span={12}>
               <Input
                 placeholder="Type"
@@ -74,36 +89,6 @@ export default class AddProject extends Component {
                 allowClear
                 onChange={this.onChange}
               />{" "}
-            </Col>
-            <Col span={12}>
-              {" "}
-              <Input
-                placeholder="Members"
-                style={{ width: "90%" }}
-                allowClear
-                onChange={this.onChange}
-              />
-            </Col>
-          </Row>
-          <Row style={{ margin: "0 0 10px 0" }}>
-            <Col span={12}>Start Date</Col>
-            <Col span={12}>End Date</Col>
-          </Row>
-          <Row style={{ margin: "0 0 20px 0" }}>
-            <Col span={12}>
-            <DatePicker onChange={onChange} />
-            </Col>
-            <Col span={12}>
-              {" "}
-              <DatePicker onChange={onChange} />    
-            </Col>
-          </Row>
-          <Row style={{ margin: "0 0 10px 0" }}>
-            <Col span={12}>Project Description</Col>
-          </Row>
-          <Row style={{ margin: "0 0 20px 0" }}>
-            <Col span={24}>
-            <TextArea rows={2} />
             </Col>
           </Row>
         </Form>
