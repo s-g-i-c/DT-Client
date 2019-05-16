@@ -5,29 +5,89 @@ import AddProject from "./AddProject";
 
 function info() {
   Modal.info({
-    title: 'Full details',
+    title: "Full details",
     width: "50%",
+    style: { top: "20px" },
     content: (
       <div>
         <Row gutter={16} style={{ "margin-bottom": "5px" }}>
           <Col span={6}>Project ID</Col>
-          <Col span={18}><strong><span>: </span>00001</strong></Col>
+          <Col span={18}>
+            <strong>
+              <span>: </span>00001
+            </strong>
+          </Col>
         </Row>
         <Row gutter={16} style={{ "margin-bottom": "5px" }}>
           <Col span={6}>Project Name</Col>
-          <Col span={18}><strong><span>: </span>Hospital Management System</strong></Col>
+          <Col span={18}>
+            <strong>
+              <span>: </span>Hospital Management System
+            </strong>
+          </Col>
         </Row>
         <Row gutter={16} style={{ "margin-bottom": "5px" }}>
           <Col span={6}>Project Manager</Col>
-          <Col span={18}><strong><span>: </span>Somebody, I don't know, Theriyathuda</strong></Col>
+          <Col span={18}>
+            <strong>
+              <span>: </span>Somebody, I don't know, Theriyathuda
+            </strong>
+          </Col>
         </Row>
         <Row gutter={16} style={{ "margin-bottom": "5px" }}>
           <Col span={6}>Type</Col>
-          <Col span={18}><strong><span>: </span>Web Application</strong></Col>
+          <Col span={18}>
+            <strong>
+              <span>: </span>Web Application
+            </strong>
+          </Col>
         </Row>
         <Row gutter={16} style={{ "margin-bottom": "5px" }}>
           <Col span={6}>Members</Col>
-          <Col span={18}><strong><span>: </span>Mathangan, Tyrone, Hari Lojunan, Deluxan</strong></Col>
+          <Col span={18}>
+            <strong>
+              <span>: </span>Mathangan, Tyrone, Hari Lojunan, Deluxan
+            </strong>
+          </Col>
+        </Row>
+        <Row gutter={16} style={{ "margin-bottom": "5px" }}>
+          <Col span={6}>Duration</Col>
+          <Col span={18}>
+            <strong>
+              <span>: </span>6 Months
+            </strong>
+          </Col>
+        </Row>
+        <Row gutter={16} style={{ "margin-bottom": "5px" }}>
+          <Col span={6}>Start Date</Col>
+          <Col span={18}>
+            <strong>
+              <span>: </span>16-05-2019
+            </strong>
+          </Col>
+        </Row>
+        <Row gutter={16} style={{ "margin-bottom": "5px" }}>
+          <Col span={6}>End Date</Col>
+          <Col span={18}>
+            <strong>
+              <span>: </span>16-11-2019
+            </strong>
+          </Col>
+        </Row>
+        <Row gutter={16} style={{ "margin-bottom": "5px" }}>
+          <Col span={6}>Description</Col>
+          <Col span={18}>
+            <span>: </span>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s
+            with the release of Letraset sheets containing Lorem Ipsum passages,
+            and more recently with desktop publishing software like Aldus
+            PageMaker including versions of Lorem Ipsum.
+          </Col>
         </Row>
       </div>
     ),
@@ -92,7 +152,7 @@ const columns = [
     render: () => (
       <Tooltip title="Full Detail">
         <a>
-        {/* <Button onClick={info}>Info</Button> */}
+          {/* <Button onClick={info}>Info</Button> */}
           <Icon type="table" style={{ color: "#5b8c00" }} onClick={info} />
         </a>
       </Tooltip>
@@ -177,6 +237,7 @@ export default class ProjectManagement extends Component {
             </Button>
             <Modal
               title="Add Project"
+              style={{ top: 20 }}
               visible={this.state.visible}
               onOk={this.handleOk}
               onCancel={this.handleCancel}
