@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Card, Col, Row, Table, Progress, Badge } from "antd";
 import EmployeesManager from "./EmployeesManager";
+import CompanyManager from './CompanyManager'
 
 export default class Dashboard extends Component {
   render() {

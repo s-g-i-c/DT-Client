@@ -1,25 +1,25 @@
 import React, { Component } from "react";
-import { Col, Row, Table, Button, Modal, Icon, Tooltip } from "antd";
-import AddEmployee from "./AddEmployee";
+import { Col, Row, Table, Button, Modal } from "antd";
+import AddEmployee from './AddEmployee'
 
 const columns = [
   {
-    title: "Employee ID",
+    title: "ID",
     dataIndex: "id",
     defaultSortOrder: "ascend",
     sorter: (a, b) => a.id - b.id,
   },
   {
-    title: "Employee Name",
+    title: "Company Name",
     dataIndex: "name",
     filters: [
       {
-        text: "Deluxan",
-        value: "Deluxan",
+        text: "Virtusa",
+        value: "Virtusa",
       },
       {
-        text: "Mathangan",
-        value: "Mathangan",
+        text: "Sysco Labs",
+        value: "Sysco Labs",
       },
     ],
     // specify the condition of filtering result
@@ -52,25 +52,6 @@ const columns = [
     sorter: (a, b) => a.email.length - b.email.length,
     sortDirections: ["descend", "ascend"],
   },
-  {
-    title: "Edit",
-    dataIndex: "edit",
-    render: () => (
-        <Tooltip title="Edit">
-            <a><Icon type="edit" style={{ color: "#13c2c2" }} /></a>
-        </Tooltip>
-      ),
-  },
-  {
-    title: "Delete",
-    dataIndex: "delete",
-    render: () => (
-        <Tooltip title="Delete">
-            <a><Icon type="delete" style={{ color: "#cf1322" }} /></a>
-        </Tooltip>
-      ),
-  },
-  
 ];
 
 const data = [
@@ -104,7 +85,7 @@ function onChange(pagination, filters, sorter) {
   console.log("params", pagination, filters, sorter);
 }
 
-export default class EmployeesManager extends Component {
+export default class CompanyManager extends Component {
   state = { visible: false };
 
   showModal = () => {
@@ -141,7 +122,7 @@ export default class EmployeesManager extends Component {
               onOk={this.handleOk}
               onCancel={this.handleCancel}
             >
-              <AddEmployee />
+            <AddEmployee />
             </Modal>
           </div>
         </Row>
