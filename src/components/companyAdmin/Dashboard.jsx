@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Card, Col, Row, Table, Progress, Badge } from "antd";
 import EmployeesManager from "./EmployeesManager";
-import CompanyManager from './CompanyManager'
+import ProjectManagement from './ProjectManagement'
 
 export default class Dashboard extends Component {
   render() {
@@ -142,7 +142,7 @@ export default class Dashboard extends Component {
           </Col>
         </Row>
 
-        <EmployeesManager />
+        <ProjectManagement />
 
       </div>
     );

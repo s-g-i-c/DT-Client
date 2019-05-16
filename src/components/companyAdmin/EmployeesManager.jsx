@@ -56,21 +56,24 @@ const columns = [
     title: "Edit",
     dataIndex: "edit",
     render: () => (
-        <Tooltip title="Edit">
-            <a><Icon type="edit" style={{ color: "#13c2c2" }} /></a>
-        </Tooltip>
-      ),
+      <Tooltip title="Edit">
+        <a>
+          <Icon type="edit" style={{ color: "#13c2c2" }} />
+        </a>
+      </Tooltip>
+    ),
   },
   {
     title: "Delete",
     dataIndex: "delete",
     render: () => (
-        <Tooltip title="Delete">
-            <a><Icon type="delete" style={{ color: "#cf1322" }} /></a>
-        </Tooltip>
-      ),
+      <Tooltip title="Delete">
+        <a>
+          <Icon type="delete" style={{ color: "#cf1322" }} />
+        </a>
+      </Tooltip>
+    ),
   },
-  
 ];
 
 const data = [
