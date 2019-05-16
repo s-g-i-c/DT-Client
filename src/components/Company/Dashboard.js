@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "antd/dist/antd.css";
 import "./Dashboard.css";
-import { Layout, Menu, Icon, Row, Col, Badge, Empty } from "antd";
+import { Layout, Menu, Icon, Row, Col, Badge } from "antd";
 import logoDefect from "./logo.png";
 import "antd/dist/antd.css";
 import "./Dashboard.css";
@@ -62,41 +62,6 @@ class Dashboard extends React.Component {
                 <span>Empty</span>
                 <Link to={`/empty`} />
               </Menu.Item>
-              <Menu.Item key="4">
-                <Icon type="form" />
-                <span>Projects</span>
-              </Menu.Item>
-              <Menu.Item key="5">
-                <Icon type="user" />
-                <span>Users</span>
-              </Menu.Item>
-
-              <SubMenu
-                key="sub1"
-                title={
-                  <span>
-                    <Icon type="sketch" />
-                    <span>Nav Expand</span>
-                  </span>
-                }
-              >
-                <Menu.Item key="1">
-                  <Icon type="file-add" />
-                  Add
-                </Menu.Item>
-                <Menu.Item key="2">
-                  <Icon type="alert" />
-                  Manage
-                </Menu.Item>
-                <Menu.Item key="3">
-                  <Icon type="export" />
-                  Test
-                </Menu.Item>
-                <Menu.Item key="4">
-                  <Icon type="tag" />
-                  Test
-                </Menu.Item>
-              </SubMenu>
             </Menu>
           </Sider>
           <Layout

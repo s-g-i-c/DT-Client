@@ -1,23 +1,7 @@
 import "antd/dist/antd.css";
-import { Avatar, Col, Row, Form, Input, Icon, message, Button } from "antd";
+import { Avatar, Divider, Col, Row, Form, Input, Icon, Button } from "antd";
 import React, { Component } from "react";
-const props = {
-  name: "file",
-  action: "https://www.mocky.io/v2/5cc8019d300000980a055e76",
-  headers: {
-    authorization: "authorization-text"
-  },
-  onChange(info) {
-    if (info.file.status !== "uploading") {
-      console.log(info.file, info.fileList);
-    }
-    if (info.file.status === "done") {
-      message.success(`${info.file.name} file uploaded successfully`);
-    } else if (info.file.status === "error") {
-      message.error(`${info.file.name} file upload failed.`);
-    }
-  }
-};
+
 class Profile extends Component {
   render() {
     return (
@@ -68,16 +52,23 @@ class Profile extends Component {
               </Row>
             </Col>
           </Col>
-          <Col span={8}>
-            <Avatar size={164} icon="user" />
+          <Col span={7}>
+            <Divider>Update </Divider>
+            <Avatar
+              style={{ margin: "16px 0 0  85px" }}
+              size={164}
+              icon="user"
+            />
 
             <Row>
               <br />
-              <Button>
+              <Button style={{ margin: "16px 0 0  85px" }}>
                 <Icon type="upload" /> Click to Upload
               </Button>
             </Row>
+            <Divider />
           </Col>
+          <Col span={1} />
         </Row>
       </div>
     );

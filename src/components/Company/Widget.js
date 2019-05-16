@@ -39,7 +39,7 @@ export default class Widget extends Component {
           </Col>
           <Col span={8}>
             <Card
-              title="Employees Available"
+              title="Total Employees Available"
               extra={
                 <Badge
                   count={60}
@@ -70,7 +70,7 @@ export default class Widget extends Component {
           </Col>
           <Col span={8}>
             <Card
-              title="Employees Details"
+              title="Total Employees Details"
               extra={
                 <Badge
                   count={60}
@@ -136,6 +136,37 @@ export default class Widget extends Component {
                   </span>
                 </Col>
               </Row>
+            </Card>
+          </Col>
+          <Col span={8} />
+          <Col span={8} />
+
+          <Col span={8}>
+            <Card
+              title="Companies Available"
+              extra={
+                <Badge
+                  count={16}
+                  style={{ backgroundColor: "#52c41a" }}
+                  overflowCount={100000}
+                />
+              }
+              bordered={true}
+            >
+              <Progress
+                type="circle"
+                percent={75}
+                format={percent => `${percent} Comp`}
+              />
+
+              <Progress
+                percent={5}
+                status="active"
+                strokeColor={{
+                  "0%": "#f5222d",
+                  "100%": "#f5222d"
+                }}
+              />
             </Card>
           </Col>
         </Row>
