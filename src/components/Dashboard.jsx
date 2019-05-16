@@ -1,6 +1,7 @@
 import React from "react";
 // import AddDefect from "./Defect/AddDefect";
-import DefectDashboard from "./Defect/DefectDashboard";
+// import DefectDashboard from "./Defect/DefectDashboard";
+import Privilege from "./privilege/privilege";
 
 import "antd/dist/antd.css";
 import "./Dashboard.css";
@@ -75,7 +76,8 @@ class SiderDemo extends React.Component {
             }}
           >
             {/* <AddDefect /> */}
-            <DefectDashboard />
+            {/* <DefectDashboard /> */}
+            <Privilege />
           </Content>
         </Layout>
       </Layout>
