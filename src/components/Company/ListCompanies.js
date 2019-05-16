@@ -1,7 +1,6 @@
 import React from "react";
 
 import {
-  PageHeader,
   Table,
   Divider,
   Popconfirm,
@@ -157,9 +156,7 @@ class CompanyMain extends React.Component {
 
     return (
       <React.Fragment>
-        <PageHeader onBack={() => null} title="Company" subTitle="Main" />
-
-        <div style={{ padding: 14, background: "#fff", minHeight: 360 }}>
+        <div style={{ padding: 4, background: "#fff", minHeight: 360 }}>
           <Button type="primary" onClick={this.showModal}>
             <Icon type="diff" theme="filled" />
             Add New

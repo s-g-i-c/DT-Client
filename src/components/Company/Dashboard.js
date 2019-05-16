@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "antd/dist/antd.css";
 import "./Dashboard.css";
-import { Layout, Menu, Icon, Row, Col, Badge } from "antd";
+import { PageHeader, Layout, Menu, Icon, Row, Col, Badge } from "antd";
 import logoDefect from "./logo.png";
 import "antd/dist/antd.css";
 import "./Dashboard.css";
@@ -76,7 +76,13 @@ class Dashboard extends React.Component {
             >
               <Row gutter={16}>
                 <Col className="gutter-row" span={6}>
-                  <div className="gutter-box" />
+                  <div className="gutter-box">
+                    <PageHeader
+                      onBack={() => null}
+                      title="Super Admin"
+                      subTitle="Main"
+                    />
+                  </div>
                 </Col>
                 <Col className="gutter-row" span={6}>
                   <div className="gutter-box" />
