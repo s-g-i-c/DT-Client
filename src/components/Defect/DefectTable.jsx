@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Table, Button, Modal, Row, Col } from "antd";
+import { Table, Button, Modal, Row, Col, Select } from "antd";
 
 const data = [
   {
@@ -69,6 +69,8 @@ export default class DefectTable extends Component {
   };
 
   render() {
+    const { visible } = this.state; // for Model
+    const Option = Select.Option; // for Select
     let { sortedInfo, filteredInfo } = this.state;
     sortedInfo = sortedInfo || {};
     filteredInfo = filteredInfo || {};
@@ -77,9 +79,6 @@ export default class DefectTable extends Component {
         title: "DefectId",
         dataIndex: "defectId",
         key: "defectId",
-        filters: [{ text: "Joe", value: "Joe" }, { text: "Jim", value: "Jim" }],
-        filteredValue: filteredInfo.defectId || null,
-        onFilter: (value, record) => record.defectId.includes(value),
         sorter: (a, b) => a.defectId.length - b.defectId.length,
         sortOrder: sortedInfo.columnKey === "defectId" && sortedInfo.order
       },
@@ -91,25 +90,13 @@ export default class DefectTable extends Component {
         sortOrder: sortedInfo.columnKey === "moduleName" && sortedInfo.order
       },
       {
-        title: "Description",
-        dataIndex: "description",
-        key: "description",
-        filters: [
-          { text: "London", value: "London" },
-          { text: "New York", value: "New York" }
-        ],
-        filteredValue: filteredInfo.description || null,
-        onFilter: (value, record) => record.description.includes(value),
-        sorter: (a, b) => a.description.length - b.description.length,
-        sortOrder: sortedInfo.columnKey === "description" && sortedInfo.order
-      },
-      {
         title: "Severity",
         dataIndex: "severity",
         key: "severity",
         filters: [
-          { text: "London", value: "London" },
-          { text: "New York", value: "New York" }
+          { text: "High", value: "high" },
+          { text: "Medium", value: "medium" },
+          { text: "Low", value: "low" }
         ],
         filteredValue: filteredInfo.severity || null,
         onFilter: (value, record) => record.severity.includes(value),
@@ -121,8 +108,9 @@ export default class DefectTable extends Component {
         dataIndex: "priority",
         key: "priority",
         filters: [
-          { text: "London", value: "London" },
-          { text: "New York", value: "New York" }
+          { text: "High", value: "high" },
+          { text: "Medium", value: "medium" },
+          { text: "Low", value: "low" }
         ],
         filteredValue: filteredInfo.priority || null,
         onFilter: (value, record) => record.priority.includes(value),
@@ -134,8 +122,8 @@ export default class DefectTable extends Component {
         dataIndex: "type",
         key: "type",
         filters: [
-          { text: "London", value: "London" },
-          { text: "New York", value: "New York" }
+          { text: "Type1", value: "type1" },
+          { text: "Type2", value: "type2" }
         ],
         filteredValue: filteredInfo.type || null,
         onFilter: (value, record) => record.type.includes(value),
@@ -147,8 +135,9 @@ export default class DefectTable extends Component {
         dataIndex: "status",
         key: "status",
         filters: [
-          { text: "London", value: "London" },
-          { text: "New York", value: "New York" }
+          { text: "Open", value: "open" },
+          { text: "Re-Open", value: "reopen" },
+          { text: "Deferred", value: "deferred" }
         ],
         filteredValue: filteredInfo.status || null,
         onFilter: (value, record) => record.status.includes(value),
@@ -156,21 +145,21 @@ export default class DefectTable extends Component {
         sortOrder: sortedInfo.columnKey === "status" && sortedInfo.order
       },
       {
-        title: "Details",
+        title: "More",
         dataIndex: "",
         key: "x",
         render: () => (
-          <Button type="primary" icon="plus" onClick={this.showModal} />
+          <Button type="link" icon="ellipsis" onClick={this.showModal} />
         )
       }
     ];
 
-    const { visible } = this.state;
     return (
       <div>
         <Modal
+          style={{ top: 10 }}
           visible={visible}
-          title="DefectId"
+          title="DefectName"
           width="60%"
           onOk={this.handleOk}
           onCancel={this.handleCancel}
@@ -241,6 +230,23 @@ export default class DefectTable extends Component {
               <Col span={24}>
                 <Col span={6}> Added Date: </Col>
                 <Col span={18}>Added Date</Col>
+              </Col>
+            </Row>
+            <Row style={{ margin: "0px 0px 20px 0px" }}>
+              <Col span={24}>
+                <Col span={6}> Status: </Col>
+                <Col span={18}>
+                  <Select
+                    showSearch
+                    style={{ width: "30%" }}
+                    placeholder=" Select Status"
+                  >
+                    <Option value="open"> Open </Option>
+                    <Option value="reopern"> Re-Open </Option>
+                    <Option value="deferd"> Deferred </Option>
+                    <Option value="closed"> Closed </Option>
+                  </Select>
+                </Col>
               </Col>
             </Row>
           </div>
