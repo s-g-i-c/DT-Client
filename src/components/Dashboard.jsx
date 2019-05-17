@@ -6,7 +6,7 @@ import { Layout, Menu, Icon, Row, Col, Badge, Empty, Ico } from "antd";
 import logo from "./logo.png";
 import "antd/dist/antd.css";
 import "./Dashboard.css";
-import Dashboard from "./projectManager/Dashboard";
+import Dashboard from "./developers/Dashboard";
 
 const { Header, Sider, Content } = Layout;
 const SubMenu = Menu.SubMenu;
