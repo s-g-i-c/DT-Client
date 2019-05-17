@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Card, Col, Row, Table, Progress, Badge } from "antd";
-import ProjectManagement from './ProjectManagement'
+import MembersManager from './MembersManager'
 
 export default class Dashboard extends Component {
   render() {
@@ -99,7 +99,7 @@ export default class Dashboard extends Component {
           </Col>
         </Row>
 
-        <ProjectManagement />
+        <MembersManager />
 
       </div>
     );

@@ -44,19 +44,10 @@ export default class AddProject extends Component {
       <div>
         <Form>
           <Row style={{ margin: "0 0 10px 0" }}>
-            <Col span={12}>Project Id</Col>
             <Col span={12}>Project Name </Col>
+            <Col span={12}>Project Manager</Col>
           </Row>
           <Row style={{ margin: "0 0 20px 0" }}>
-            <Col span={12}>
-              {" "}
-              <Input
-                placeholder="Project ID"
-                style={{ width: "90%" }}
-                allowClear
-                onChange={this.onChange}
-              />
-            </Col>
             <Col span={12}>
               <Input
                 placeholder="Project Name"
@@ -65,12 +56,6 @@ export default class AddProject extends Component {
                 onChange={this.onChange}
               />{" "}
             </Col>
-          </Row>
-          <Row style={{ margin: "0 0 10px 0" }}>
-            <Col span={12}>Project Manager</Col>
-            <Col span={12}>Duration</Col>
-          </Row>
-          <Row style={{ margin: "0 0 20px 0" }}>
             <Col span={12}>
               {" "}
               <Select
@@ -91,6 +76,12 @@ export default class AddProject extends Component {
                 <Option value="tom">Mr.Malin</Option>
               </Select>
             </Col>
+          </Row>
+          <Row style={{ margin: "0 0 10px 0" }}>
+            <Col span={12}>Duration</Col>
+            <Col span={12}>Type</Col>
+          </Row>
+          <Row style={{ margin: "0 0 20px 0" }}>
             <Col span={12}>
               <Input
                 placeholder="Duration"
@@ -99,12 +90,6 @@ export default class AddProject extends Component {
                 onChange={this.onChange}
               />{" "}
             </Col>
-          </Row>
-          <Row style={{ margin: "0 0 10px 0" }}>
-            <Col span={12}>Type</Col>
-            <Col span={12}>Members</Col>
-          </Row>
-          <Row style={{ margin: "0 0 20px 0" }}>
             <Col span={12}>
               <Input
                 placeholder="Type"
@@ -112,17 +97,6 @@ export default class AddProject extends Component {
                 allowClear
                 onChange={this.onChange}
               />{" "}
-            </Col>
-            <Col span={12}>
-              {" "}
-              <Select
-                mode="multiple"
-                style={{ width: '90%' }}
-                placeholder="Please select"
-                onChange={handleChange}
-              >
-                {children}
-              </Select>
             </Col>
           </Row>
           <Row style={{ margin: "0 0 10px 0" }}>
