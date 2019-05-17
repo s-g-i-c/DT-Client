@@ -12,6 +12,10 @@ import Emptyfile from "./EmptyFile";
 import Profile from "../User/Profile";
 import DefectDashboard from "../Defect/DefectDash";
 import AddDefect from "../Defect/AddDefect";
+import CDashboard from "../CompanyAdmin/CompanyDash";
+import ProjectManagement from "../CompanyAdmin/ProjectManagement";
+import EmployeesManager from "../CompanyAdmin/EmployeeManagement";
+import PMDashboard from "../ProjectManager/ProjectManagerDash";
 
 const { Header, Sider, Content } = Layout;
 const SubMenu = Menu.SubMenu;
@@ -33,7 +37,7 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-      <Router>
+      <Router path="/main">
         <Layout style={{ minHeight: "100vh" }}>
           <Sider
             collapsible
@@ -75,16 +79,42 @@ class Dashboard extends React.Component {
                 }
               >
                 <Menu.Item key="11">
-                  <Icon type="file-add" />
+                  <Icon type="check" />
                   Defect Dash
                   <Link to={`/DefectDash`} />
                 </Menu.Item>
                 <Menu.Item key="12">
-                  <Icon type="alert" />
+                  <Icon type="heat-map" />
                   Manage Defect
                   <Link to={`/AddDefect`} />
                 </Menu.Item>
               </SubMenu>
+
+              <SubMenu
+                key="sub2"
+                title={
+                  <span>
+                    <Icon type="code-sandbox" />
+                    <span>Company Admin </span>
+                  </span>
+                }
+              >
+                <Menu.Item key="111">
+                  <Icon type="file" />
+                  Company Admin Dash
+                  <Link to={`/CompanyAdminDash`} />
+                </Menu.Item>
+                <Menu.Item key="122">
+                  <Icon type="alert" />
+                  Manage Employee
+                  <Link to={`/EmpManage`} />
+                </Menu.Item>
+              </SubMenu>
+              <Menu.Item key="16">
+                <Icon type="gitlab" />
+                <span>P.Manager Dash</span>
+                <Link to={`/PMDash`} />
+              </Menu.Item>
             </Menu>
           </Sider>
           <Layout
@@ -102,7 +132,7 @@ class Dashboard extends React.Component {
                   <div className="gutter-box">
                     <PageHeader
                       onBack={() => null}
-                      title="Super Admin"
+                      title="Common"
                       subTitle="Main"
                     />
                   </div>
@@ -161,12 +191,17 @@ class Dashboard extends React.Component {
                 minHeight: 600
               }}
             >
+              <Route path="/m" component={Emptyfile} />
               <Route path="/widget" component={Widget} />
               <Route path="/main" component={CompanyMain} />
               <Route path="/empty" component={Emptyfile} />
               <Route path="/profile" component={Profile} />
               <Route path="/AddDefect" component={AddDefect} />
               <Route path="/DefectDash" component={DefectDashboard} />
+              <Route path="/CompanyAdminDash" component={CDashboard} />
+              <Route path="/ProjectManagement" component={ProjectManagement} />
+              <Route path="/EmpManage" component={EmployeesManager} />
+              <Route path="/PMDash" component={PMDashboard} />
             </Content>
           </Layout>
         </Layout>

@@ -11,6 +11,26 @@ const data = [
     priority: "Priority",
     type: "Type",
     status: "Status"
+  },
+  {
+    key: "2",
+    defectId: "D002",
+    moduleName: "Module Login",
+    description: "Hello World",
+    severity: "High",
+    priority: "Medium",
+    type: "Functionality",
+    status: "Re-opened"
+  },
+  {
+    key: "3",
+    defectId: "Defect Id",
+    moduleName: "Module Name",
+    description: "Description",
+    severity: "Severity",
+    priority: "Priority",
+    type: "Type",
+    status: "Status"
   }
 ];
 
@@ -237,6 +257,7 @@ export default class DefectTable extends Component {
                 <Col span={6}> Status: </Col>
                 <Col span={18}>
                   <Select
+                    validateStatus="warning"
                     showSearch
                     style={{ width: "30%" }}
                     placeholder=" Select Status"
@@ -253,6 +274,9 @@ export default class DefectTable extends Component {
         </Modal>
 
         <Table
+          style={{
+            background: "#fff"
+          }}
           columns={columns}
           dataSource={data}
           onChange={this.handleChange}
