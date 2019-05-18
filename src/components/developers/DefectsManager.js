@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Col, Row, Table, Button, Modal, Tooltip, Icon } from "antd";
+import { Col, Row, Table, Button, Modal, Tooltip, Icon, Tag } from "antd";
 
 function info() {
     Modal.info({
@@ -126,10 +126,40 @@ const columns = [
     {
         title: "Severity",
         dataIndex: "severity",
+        render: severity => (
+            <span>
+              {severity.map(severe => {
+                let color = ''
+                if (severe === 'High') { color = 'red' }
+                else if (severe === 'Medium') { color = 'blue' }
+                else if (severe === 'Low') { color = 'green' }
+                return (
+                  <Tag color={color} key={severe}>
+                    {severe.toUpperCase()}
+                  </Tag>
+                );
+              })}
+            </span>
+          ),
     },
     {
         title: "Priority",
         dataIndex: "priority",
+        render: priority => (
+            <span>
+              {priority.map(prior => {
+                let color = ''
+                if (prior === 'High') { color = 'red' }
+                else if (prior === 'Medium') { color = 'blue' }
+                else if (prior === 'Low') { color = 'green' }
+                return (
+                  <Tag color={color} key={prior}>
+                    {prior.toUpperCase()}
+                  </Tag>
+                );
+              })}
+            </span>
+          ),
     },
     {
         title: "Entered By",
@@ -170,16 +200,16 @@ const data = [
     {
         title: "Form Validation Issue",
         module: "Login",
-        severity: "High",
-        priority: "Medium",
+        severity: ["High"],
+        priority: ["Medium"],
         by: "Tyrone",
         date: "10-May-2019"
     },
     {
         title: "Responsive issue",
         module: "Dashboard",
-        severity: "Medium",
-        priority: "Low",
+        severity: ["Medium"],
+        priority: ["Low"],
         by: "Mathangan",
         date: "11-May-2019"
     },
